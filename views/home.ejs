@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %> 
+
+<h1>Home</h1>
+
+<p><%= homeContent %> </p>
+
+<form action="/" method="post">
+    <div class="form-group">
+        <label for="searchPost">Search Post by Title</label>
+        <input class="form-control" type="text" name="requestedPost" autocomplete="off">
+    </div>
+    <button class="btn btn-primary" type="submit" name="searchPostButton">Search</button>
+</form>
+
+<% posts.forEach(post => { %>
+    <h2><%= post.title %> </h2>
+    <p><%= post.content.substring(0, 100) + "..." %>
+    <a href="/posts/<%=post.title%>" >Read More</a></p>
+<% }) %>
+
+<%- include('partials/footer.ejs') %> 
